@@ -1,22 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import styles from './home.module.scss';
+import styles from "./home.module.scss";
+import { TodoItem } from "../../common/todo-item";
 
 const Home = () => (
   <div className={styles.container}>
-
-    <h1 className={styles.title}>
-      Todo list for Tuesday morning
-    </h1>
+    <h1 className={styles.title}>Todo list for Tuesday morning</h1>
     <div className={styles.todoCard}>
-      <div className={styles.todoItem}>
-        <input type="checkbox" name="apples" />
-        <label htmlFor="apples">Buy x6 Apples</label>
-      </div>
-      <div className={styles.todoItem}>
-        <input type="checkbox" name="pears" />
-        <label htmlFor="pears">Buy x8 Pears</label>
-      </div>
+      <TodoItem name="apples" title="Buy x6 Apples" />
+      <TodoItem name="pears" title="Buy x8 Pears" />
     </div>
   </div>
 );

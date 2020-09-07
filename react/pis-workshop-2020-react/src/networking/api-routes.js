@@ -3,7 +3,7 @@
   they are centrally documented.
 */
 const API_ROUTES = {
-  EXAMPLE: '/example',
+  ALL_TODO_ITEMS: "/",
 };
 
 export { API_ROUTES };

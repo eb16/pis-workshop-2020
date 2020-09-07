@@ -1,7 +1,8 @@
-import { Example } from "../models/example";
 import { ExampleSerializer } from "../serializers/example-serializer";
+import { TodoItemsSerializer } from "../serializers/todo-items-serializer";
 import { ApiService } from "../api-service";
 import { API_ROUTES } from "../api-routes";
+import { TodoItem } from "../../models/todo-item";
 
 /*
   NOTE: this file serves only as an example and is not used.
@@ -9,11 +10,13 @@ import { API_ROUTES } from "../api-routes";
   Learn more about our networking architecture on:
   https://blog.xmartlabs.com/2020/07/09/frontend-architecture-and-best-practices/
 */
-class ExampleController {
-  static async getExamples() {
-    const response = await ApiService.get(API_ROUTES.EXAMPLE);
-    const deSerializedExample = ExampleSerializer.deSerialize(response.data);
-    return new Example(deSerializedExample);
+class TodoItemController {
+  static async getTodoItems() {
+    const response = await ApiService.get(API_ROUTES.ALL_TODO_ITEMS);
+    const deSerializedTodoItems = TodoItemsSerializer.deSerialize(
+      response.data
+    );
+    return deSerializedTodoItems.map((todoItem) => new TodoItem(todoItem));
   }
 
   static createExample(example) {
@@ -24,4 +27,4 @@ class ExampleController {
   }
 }
 
-export { ExampleController };
+export { TodoItemController };

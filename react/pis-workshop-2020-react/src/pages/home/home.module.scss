@@ -1,7 +1,27 @@
 .container {
   background-color: #fafafa;
+  padding: 20px;
 }
 
 .title {
   font-weight: bold;
+}
+
+.todoCard {
+  padding: 20px;
+  background-color: cadetblue;
+  display: inline-block;
+  width: 12%;
+  -webkit-box-shadow: 7px 10px 14px -5px rgba(204,204,204,1);
+  -moz-box-shadow: 7px 10px 14px -5px rgba(204,204,204,1);
+  box-shadow: 7px 10px 14px -5px rgba(204,204,204,1);
+
+  .todoItem {
+    color: whitesmoke;
+    font-weight: 500;
+  }
+}
+
+input {
+  margin: .5rem
 }

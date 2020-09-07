@@ -4,6 +4,7 @@ import styles from "./home.module.scss";
 import { TodoItem } from "../../common/todo-item";
 import { TodoItemController } from "../../networking/controllers/todo-item-controller";
 import { logger } from "../../helpers/logger";
+import { NewItem } from "../../common/new-item";
 
 const Home = () => {
   const [todoItems, setTodoItems] = useState([]);
@@ -26,6 +27,7 @@ const Home = () => {
         {todoItems.map((todoItem) => (
           <TodoItem id={todoItem.id} title={todoItem.title} key={todoItem.id} />
         ))}
+        <NewItem />
       </div>
     </div>
   );

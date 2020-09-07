@@ -7,6 +7,7 @@
 class TodoItemSerializer {
   static deSerialize(todoItem) {
     return {
+      id: todoItem.url,
       title: todoItem.title,
       completed: todoItem.completed,
     };

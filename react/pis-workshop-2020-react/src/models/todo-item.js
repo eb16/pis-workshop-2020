@@ -6,6 +6,7 @@
 */
 class TodoItem {
   constructor(params) {
+    this.id = params.id;
     this.title = params.title;
     this.completed = params.completed;
   }

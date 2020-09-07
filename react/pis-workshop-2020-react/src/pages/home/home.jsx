@@ -24,7 +24,7 @@ const Home = () => {
       <h1 className={styles.title}>Todo list for Tuesday morning</h1>
       <div className={styles.todoCard}>
         {todoItems.map((todoItem) => (
-          <TodoItem id={todoItem.title} title={todoItem.title} />
+          <TodoItem id={todoItem.id} title={todoItem.title} key={todoItem.id} />
         ))}
       </div>
     </div>

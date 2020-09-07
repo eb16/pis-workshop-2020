@@ -1,4 +1,8 @@
 .todoItem {
   color: whitesmoke;
   font-weight: 500;
+
+  label {
+    cursor: pointer;
+  }
 }

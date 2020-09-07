@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./todo-item.module.scss";
 
-const TodoItem = ({ title, name }) => (
-  <div className={styles.todoItem}>
-    <input type="checkbox" name={name} />
-    <label htmlFor={name}>{title}</label>
-  </div>
-);
+const TodoItem = ({ id, title }) => {
+  const [checked, setChecked] = useState(false);
+  const toggle = () => setChecked((prevState) => !prevState);
+
+  return (
+    <div className={styles.todoItem}>
+      <input type="checkbox" id={id} checked={checked} onChange={toggle} />
+      <label htmlFor={id}>{title}</label>
+    </div>
+  );
+};
 
 export { TodoItem };

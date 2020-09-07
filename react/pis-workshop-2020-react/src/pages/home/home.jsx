@@ -19,6 +19,9 @@ const Home = () => {
     };
     fetchTodoItems();
   }, []);
+  const pushNewItem = (newItem) => {
+    setTodoItems((prevTodoItems) => [...prevTodoItems, newItem]);
+  };
 
   return (
     <div className={styles.container}>
@@ -27,7 +30,7 @@ const Home = () => {
         {todoItems.map((todoItem) => (
           <TodoItem id={todoItem.id} title={todoItem.title} key={todoItem.id} />
         ))}
-        <NewItem />
+        <NewItem pushNewItem={pushNewItem} />
       </div>
     </div>
   );

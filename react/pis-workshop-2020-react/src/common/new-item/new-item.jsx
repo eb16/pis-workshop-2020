@@ -1,9 +1,23 @@
 import React, { useState } from "react";
 
 import styles from "./new-item.module.scss";
+import { logger } from "../../helpers/logger";
+import { TodoItemController } from "../../networking/controllers/todo-item-controller";
 
-const NewItem = () => {
+const NewItem = ({ pushNewItem }) => {
   const [itemName, setItemName] = useState("");
+  const addNewItem = async () => {
+    try {
+      const newItem = await TodoItemController.createNewItem({
+        title: itemName,
+        completed: false,
+      });
+      pushNewItem(newItem);
+      setItemName("");
+    } catch (error) {
+      logger.error("Error adding the new item");
+    }
+  };
 
   return (
     <div className={styles.newItem}>
@@ -12,7 +26,7 @@ const NewItem = () => {
         value={itemName}
         onChange={(e) => setItemName(e.target.value)}
       />
-      <button>Add new item</button>
+      <button onClick={addNewItem}>Add new item</button>
     </div>
   );
 };

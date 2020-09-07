@@ -13,10 +13,10 @@ class TodoItemSerializer {
     };
   }
 
-  static serialize(example) {
+  static serialize(todoItem) {
     return {
-      foo: example.foo,
-      bar: example.bar,
+      title: todoItem.title,
+      completed: todoItem.completed,
     };
   }
 }

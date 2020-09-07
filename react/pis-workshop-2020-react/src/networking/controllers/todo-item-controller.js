@@ -1,8 +1,8 @@
-import { ExampleSerializer } from "../serializers/example-serializer";
 import { TodoItemsSerializer } from "../serializers/todo-items-serializer";
 import { ApiService } from "../api-service";
 import { API_ROUTES } from "../api-routes";
 import { TodoItem } from "../../models/todo-item";
+import { TodoItemSerializer } from "../serializers/todo-item-serializer";
 
 /*
   NOTE: this file serves only as an example and is not used.
@@ -19,11 +19,14 @@ class TodoItemController {
     return deSerializedTodoItems.map((todoItem) => new TodoItem(todoItem));
   }
 
-  static createExample(example) {
-    const serializedExample = ExampleSerializer.serialize(example);
-    return ApiService.post(API_ROUTES.EXAMPLE, {
-      example: serializedExample,
-    });
+  static async createNewItem(item) {
+    const serializedNewItem = TodoItemSerializer.serialize(item);
+    const response = await ApiService.post(
+      API_ROUTES.CREATE_ITEM,
+      serializedNewItem
+    );
+    const deSerializedTodoItem = TodoItemSerializer.deSerialize(response.data);
+    return new TodoItem(deSerializedTodoItem);
   }
 }
 

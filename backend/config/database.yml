@@ -23,21 +23,21 @@ default: &default
 
 development:
   <<: *default
-  database: backend_development
+  database: api_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: backend
+  username: postgres
 
   # The password associated with the postgres role (username).
-  #password:
+  password: postgres
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+  host: db-dev
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
@@ -47,17 +47,20 @@ development:
   #schema_search_path: myapp,sharedapp,public
 
   # Minimum log levels, in increasing order:
-  #   debug5, debug4, debug3, debug2, debug1,
-  #   log, notice, warning, error, fatal, and panic
-  # Defaults to warning.
-  #min_messages: notice
+    #   debug5, debug4, debug3, debug2, debug1,
+    #   log, notice, warning, error, fatal, and panic
+    # Defaults to warning.
+    #min_messages: notice
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: backend_test
+    # Warning: The database defined as "test" will be erased and
+    # re-generated from your development database when you run "rake".
+    # Do not set this db to the same as development or production.
+  test:
+    <<: *default
+    database: api_test
+    password: postgres
+    username: postgres
+    host: db-dev
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: backend_production
-  username: backend
-  password: <%= ENV['BACKEND_DATABASE_PASSWORD'] %>
+  database: api_production
+  username: api
+  password: <%= ENV['API_DATABASE_PASSWORD'] %>

@@ -10,10 +10,10 @@ First, you’ll need to have Ruby installed on your system. If that’s not the 
 
     This will create a RoR API with a PostgreSQL database. The `-T` option tells RoR not to include `Test::Unit` as the test framework since we are going to use `rspec-rails`.
 
-2. `cd rails-api`
+2. `cd pis-workshop-2020-rails`
 3. `rails db:create`
 4. `rails server`
-5. When you visit `[localhost:3000](http://localhost:300)` in a browser, you should see the Ruby on Rails welcome page.
+5. When you visit [localhost:3000](http://localhost:300) in a browser, you should see the Ruby on Rails welcome page.
 
 # Creating our TodoList API
 
@@ -31,7 +31,7 @@ Then, run the migrations:
 
 - `rails db:migrate`
 
-Now, let's add the same validation in the model too using `validates.`
+Now, let's add the same validation in the model too using `validates`.
 
 We have our LIst model done, we can check it out using the rails console:
 
@@ -67,19 +67,19 @@ After doing so, you can try them out using Postman.
 
 First, we need to add a new gem to our Gemfile:
 
-- `gem blueprinter, '0.25.1'`
+- `gem 'blueprinter', '0.25.1'`
 
 Then run `bundle install`.
 
 You can find the gem documentation in [https://github.com/procore/blueprinter](https://github.com/procore/blueprinter).
 
-Let's add the list blueprint. Create a new folder `blueprints/api/v1`  and then the `list_blueprint` inside it.
+Let's add the list blueprint. Create a new folder `blueprints/api/v1`  and then the `list_blueprint.rb` inside it.
 
 ## Tests
 
 We're going to use `rspec` as the testing framework. Let's add it to our project first.
 
-- `gem rspec-rails, '4.0.1'`
+- `gem 'rspec-rails', '4.0.1'`
 - `rails generate rspec:install`
 
 We would also `factory_bot_rails` and `faker` in our test suite too:

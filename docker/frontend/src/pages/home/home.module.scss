@@ -1,0 +1,22 @@
+.container {
+  background-color: #fafafa;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.productCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productCard {
+  background-color: white;
+  color: black;
+  text-align: left;
+  padding: 10px;
+  width: 300px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
